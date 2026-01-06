@@ -1,4 +1,5 @@
-﻿import {Button} from "@/components/ui/button.tsx";
+﻿import {Label} from "@/components/ui/label"
+import {Switch} from "@/components/ui/switch"
 import React from "react";
 
 export interface Props {
@@ -37,9 +38,10 @@ export default function ThemeSwitcher(props: Props) {
 
     return (
         <>
-            <Button id="themeToggle" aria-label="Toggle theme" onClick={toggleTheme}>
-                Toggle Theme
-            </Button>
+            <div className="flex items-center space-x-2 pr-4">
+                <Label htmlFor="airplane-mode">Enable {theme} mode</Label>
+                <Switch id="themeToggle" onClick={toggleTheme}/>
+            </div>
         </>
     );
 }
