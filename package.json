@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.30.0",
+    "@emotion/react": "^11.14.0",
     "astro": "^5.16.6"
   }
 }
