@@ -1,14 +1,11 @@
-﻿export interface Props {}
+﻿export interface Props {
+}
 
 import {
     NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
 export default function Navbar(props: Props) {
@@ -18,9 +15,15 @@ export default function Navbar(props: Props) {
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem className="flex flex-row gap-3 justify-center">
-                                <NavigationMenuLink>Home</NavigationMenuLink>
-                                <NavigationMenuLink>About</NavigationMenuLink>
-                                <NavigationMenuLink>Projects</NavigationMenuLink>
+                            <NavigationMenuLink>
+                                <a href="/">Home</a>
+                            </NavigationMenuLink>
+                            <NavigationMenuLink>
+                                <a href="/about">About</a>
+                            </NavigationMenuLink>
+                            <NavigationMenuLink>
+                                <a href="/projects">Projects</a>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
