@@ -7,6 +7,7 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
+import ThemeSwitcher from "./ThemeSwitcher"
 
 export default function Navbar(props: Props) {
     const links = [
@@ -17,7 +18,7 @@ export default function Navbar(props: Props) {
 
     return (
         <>
-            <nav className="flex justify-center w-full py-4 bg-slate-200">
+            <nav className="py-4 bg-accent">
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem className="flex flex-row gap-3 justify-center">
@@ -25,7 +26,7 @@ export default function Navbar(props: Props) {
                                 <NavigationMenuLink
                                     key={link}
                                     href={link}
-                                    className="px-3 py-2 rounded-md text-sm font-medium text-gray-700"
+                                    className="px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     {label}
                                 </NavigationMenuLink>
@@ -34,6 +35,7 @@ export default function Navbar(props: Props) {
                     </NavigationMenuList>
                 </NavigationMenu>
             </nav>
+            <ThemeSwitcher/>
         </>
     );
 }
