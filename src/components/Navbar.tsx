@@ -37,7 +37,7 @@ export default function Navbar(props: Props) {
                         </NavigationMenuList>
                     </NavigationMenu>
                 </div>
-                <ThemeSwitcher/>
+                <ThemeSwitcher className={"mr-5"}/>
             </nav>
 
         </>

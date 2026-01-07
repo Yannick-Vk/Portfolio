@@ -1,8 +1,9 @@
-﻿import {Label} from "@/components/ui/label"
-import {Switch} from "@/components/ui/switch"
-import React from "react";
+﻿import React from "react";
+import {MoonIcon, SunIcon} from "lucide-react";
+import {Button} from "@/components/ui/button.tsx";
 
 export interface Props {
+    className?: string;
 }
 
 type ThemeType = "light" | "dark";
@@ -38,10 +39,9 @@ export default function ThemeSwitcher(props: Props) {
 
     return (
         <>
-            <div className="flex items-center space-x-2 pr-4">
-                <Label htmlFor="airplane-mode">Switch to {theme} mode</Label>
-                <Switch id="themeToggle" onClick={toggleTheme}/>
-            </div>
+            <Button id="themeToggle" onClick={toggleTheme} className={props.className ?? ""}>
+                {theme === "light" ? <MoonIcon/> : <SunIcon/>}
+            </Button>
         </>
     );
 }
