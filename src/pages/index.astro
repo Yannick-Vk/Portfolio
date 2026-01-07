@@ -7,6 +7,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 
 // Content loading
 import {type CollectionEntry, getCollection} from 'astro:content';
+import {Contact} from "@/lib/Contact.ts";
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
@@ -25,7 +26,6 @@ const skills = [
 <MainLayout title="Portfolio Home">
     <div class="pt-5 min-h-screen max-w-11/12 m-auto gap-3">
         <h1 class="text-5xl text-center font-bold text-primary">Welcome to My Portfolio</h1>
-        <p class="text-center text-lg pt-4">This is the homepage of my portfolio website built with Astro.</p>
 
         <ProfileSection title="About me" id="about">
             <p>Hi im Yannick, im a looking to become a Full-stack developer, im passionate about programming.</p>
@@ -50,5 +50,17 @@ const skills = [
             </div>
         </ProfileSection>
 
+        <ProfileSection title="Contact" id="contact">
+            <p>If you want to get in touch, feel free to reach out via LinkedIn or GitHub!</p>
+            <ul class="flex flex-row mt-5 gap-5 justify-center">
+                {Contact.map(contact => (
+                        <li>
+                            <a href={contact.url} target="_blank"
+                               class="text-blue-600 hover:underline">{contact.name}</a>
+                        </li>
+                ))}
+            </ul>
+
+        </ProfileSection>
     </div>
 </MainLayout>
