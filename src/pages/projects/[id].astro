@@ -35,7 +35,8 @@ const {Content} = await render(project);
     </div>
     <div class="max-w-10/12 mx-auto">
         <h1 class="text-3xl font-bold text-primary">{project.data.title}</h1>
-        <p class="text-sm text-gray-500">Created at: {new Date(project.data.created_at).toLocaleDateString()}</p>
+        <p class="text-sm text-gray-400 dark:text-gray-400 italic">Created
+            at: {new Date(project.data.created_at).toLocaleDateString()}</p>
 
         <div class="prose mt-4">
             <Content/>
