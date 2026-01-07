@@ -11,6 +11,7 @@ import {z} from 'astro/zod';
 const projects = defineCollection({
     loader: glob({pattern: "**/*.md", base: "./src/data/projects"}),
     schema: z.object({
+        slug: z.string(),
         title: z.string(),
         description: z.string(),
         created_at: z.string().refine((date) => !isNaN(Date.parse(date)), {
