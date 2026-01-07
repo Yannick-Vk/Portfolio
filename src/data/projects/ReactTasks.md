@@ -7,7 +7,7 @@ slug: react-tasks
 tags: [ "React", "JavaScript", "TypeScript", "Frontend" ]
 ---
 
-Created a simple task board application using **React**. For styling I used **Tailwind CSS**.
+Created a simple task board application using **React**. For styling, I used **Tailwind CSS**.
 
 The app allows users to add, remove, and edit tasks.
 

@@ -145,3 +145,16 @@
 .dark .prose strong {
     color: var(--color-fuchsia-200);
 }
+
+.prose p {
+    @apply mt-3;
+}
+
+.prose hr {
+    @apply my-3;
+}
+
+.prose a {
+    color: var(--color-cyan-500);
+    text-decoration: underline;
+}
