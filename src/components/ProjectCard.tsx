@@ -1,8 +1,10 @@
 import type {Project} from "@/Types.ts";
 import {ArrowRightFromLineIcon} from "lucide-react"
+import {cn} from "@/lib/utils.ts";
 
 export interface Props {
     project: Project;
+    className?: string;
 }
 
 export default function ProjectCard(props: Props) {
@@ -10,7 +12,7 @@ export default function ProjectCard(props: Props) {
         <>
             <a
                 href={`/projects/${props.project.slug}`}
-                className="block border border-gray-300 dark:border-slate-700 rounded-lg bg-accent hover:bg-gray-200 dark:hover:bg-slate-700 p-4 shadow-sm hover:shadow-md transition-shadow duration-300 relative group"
+                className={cn("block border border-gray-300 dark:border-slate-700 rounded-lg bg-accent hover:bg-gray-200 dark:hover:bg-slate-700 p-4 shadow-sm hover:shadow-md transition-shadow duration-300 relative group", props.className)}
             >
                 <h2 className="text-2xl font-bold mb-2">{props.project.title}</h2>
                 <p className="">{props.project.description}</p>

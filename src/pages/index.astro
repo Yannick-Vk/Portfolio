@@ -45,7 +45,7 @@ const skills = [
             <p>An overview of my projects filtered on creation date.</p>
             <div class="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
                 {projects.map(project => (
-                        <ProjectCard project={project.data}/>
+                        <ProjectCard project={project.data} className="text-left"/>
                 ))}
             </div>
         </ProfileSection>
