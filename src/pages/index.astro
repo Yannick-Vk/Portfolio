@@ -1,14 +1,54 @@
 ---
 import '../styles/global.css';
 // Component Imports
-import {Button} from '../components/ui/button.tsx';
+import ProjectCard from "@/components/ProjectCard";
+import ProfileSection from "@/components/ProfileSection";
 import MainLayout from "@/layouts/MainLayout.astro";
+
+// Content loading
+import {type CollectionEntry, getCollection} from 'astro:content';
+
+const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
+    // Sort by most recent creation date
+    (a, b) => b.data.created_at.localeCompare(a.data.created_at)
+);
+
+const skills = [
+    "TypeScript",
+    "C# / .Net 9",
+    "Vue.js",
+    "Angular",
+    "Docker",
+];
 ---
 
 <MainLayout title="Portfolio Home">
-    <div class="flex flex-col items-center pt-5 min-h-screen gap-3">
-        <h1 class="text-xl font-bold text-primary">Welcome to My Portfolio</h1>
-        <p>This is the homepage of my portfolio website built with Astro.</p>
-        <Button><a href="/projects">View my projects</a></Button>
+    <div class="pt-5 min-h-screen max-w-11/12 m-auto gap-3">
+        <h1 class="text-5xl text-center font-bold text-primary">Welcome to My Portfolio</h1>
+        <p class="text-center text-lg pt-4">This is the homepage of my portfolio website built with Astro.</p>
+
+        <ProfileSection title="About me" id="about">
+            <p>Hi im Yannick, im a looking to become a Full-stack developer, im passionate about programming.</p>
+            <p>Currently I'm creating some projects to upgrade my portfolio.</p>
+
+            <h3 class="font-bold text-2xl pt-5">Skills</h3>
+            <p>A list of some of my skills</p>
+            <ul class="flex flex-row gap-3 justify-center py-5">
+                {skills.map(skills => (
+                        <li class="rounded-3xl bg-accent px-5 py-3">{skills}</li>
+                ))}
+            </ul>
+            <p></p>
+        </ProfileSection>
+
+        <ProfileSection title="Projects" id="projects">
+            <p>An overview of my projects filtered on creation date.</p>
+            <div class="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
+                {projects.map(project => (
+                        <ProjectCard project={project.data}/>
+                ))}
+            </div>
+        </ProfileSection>
+
     </div>
 </MainLayout>

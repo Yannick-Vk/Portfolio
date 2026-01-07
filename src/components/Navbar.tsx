@@ -15,8 +15,8 @@ export interface NavbarLink {
 export default function Navbar() {
     const links: NavbarLink[] = [
         {link: "/", label: "Home"},
-        {link: "/about", label: "About"},
-        {link: "/projects", label: "Projects"},
+        {link: "/#about", label: "About"},
+        {link: "/#projects", label: "Projects"},
     ];
 
     return (
