@@ -1,7 +1,4 @@
-﻿export interface Props {
-}
-
-import {
+﻿import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuLink,
@@ -10,8 +7,13 @@ import {
 import ThemeSwitcher from "./ThemeSwitcher"
 import MobileNav from "@/components/MobileNav";
 
-export default function Navbar(props: Props) {
-    const links = [
+export interface NavbarLink {
+    link: string;
+    label: string;
+}
+
+export default function Navbar() {
+    const links: NavbarLink[] = [
         {link: "/", label: "Home"},
         {link: "/about", label: "About"},
         {link: "/projects", label: "Projects"},

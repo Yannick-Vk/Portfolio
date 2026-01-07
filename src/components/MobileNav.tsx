@@ -1,9 +1,10 @@
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger,} from "@/components/ui/sheet"
 import {Menu} from 'lucide-react';
 import {useState} from "react";
+import type {NavbarLink} from "@/components/Navbar.tsx";
 
 interface Props {
-    links: { link: string, label: string }[];
+    links: NavbarLink[];
 }
 
 export default function MobileNav(props: Props) {
