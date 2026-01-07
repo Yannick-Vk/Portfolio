@@ -2,9 +2,11 @@
 import '../styles/global.css';
 // Component Imports
 import MainLayout from "@/layouts/MainLayout.astro";
+import ProjectCard from '@/components/ProjectCard.tsx';
 
 // Content
 import {type CollectionEntry, getCollection} from 'astro:content';
+import type {Project} from "@/Types.ts";
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
@@ -19,7 +21,7 @@ const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')
 
         <div class="grid grid-cols-2 gap-5 mt-10">
             {projects.map(project => (
-                    <span>{project.data.title}</span>
+                    <ProjectCard project={project.data}/>
             ))}
         </div>
 
