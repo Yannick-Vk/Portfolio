@@ -1,22 +1,44 @@
 ---
 import '../styles/global.css';
 import Navbar from "@/components/Navbar.tsx";
-const { title } = Astro.props;
+import GitHubIcon from "@/components/icons/GitHubIcon.tsx";
+import LinkedInIcon from "@/components/icons/LinkedInIcon.tsx";
+
+const {title} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body>
-	<header>
-		<Navbar client:load />
-	</header>
-	<main>
-		<slot />
-	</main>
-	</body>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <title>{title}</title>
+</head>
+<body>
+<header>
+    <Navbar client:load/>
+</header>
+<main>
+    <slot/>
+</main>
+<footer>
+    <div class="mt-10 bg-gray-800 dark:bg-zinc-950">
+        <p class="text-center text-sm pt-5 text-gray-500">© {new Date().getFullYear()} Yannick-Vk's Portfolio. All
+            rights reserved.</p>
+        <p class="text-center text-gray-500">Contact information</p>
+        <div class="flex flex-row justify-center gap-5 pb-5 text-gray-500">
+            <p>
+                <a href="https://www.linkedin.com/in/yannick-van-kerckvoorde-901ab61ba/" target="_blank">
+                    <LinkedInIcon/>
+                </a>
+            </p>
+            <p>
+                <a href="https://github.com/Yannick-Vk" target="_blank">
+                    <GitHubIcon/>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+</body>
 </html>
