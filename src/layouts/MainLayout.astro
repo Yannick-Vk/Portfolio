@@ -22,11 +22,9 @@ const {title} = Astro.props;
     <slot/>
 </main>
 <footer>
-    <div class="mt-10 bg-gray-800 dark:bg-zinc-950">
-        <p class="text-center text-sm pt-5 text-gray-500">© {new Date().getFullYear()} Yannick-Vk's Portfolio. All
-            rights reserved.</p>
-        <p class="text-center text-gray-500">Contact information</p>
-        <div class="flex flex-row justify-center gap-5 pb-5 text-gray-500">
+    <div class="mt-10 bg-slate-800">
+        <p class="text-center text-gray-500 pt-5">Contact information</p>
+        <div class="flex flex-row justify-center gap-5 p-3 text-gray-500">
             <p>
                 <a href="https://www.linkedin.com/in/yannick-van-kerckvoorde-901ab61ba/" target="_blank">
                     <LinkedInIcon/>
@@ -38,6 +36,8 @@ const {title} = Astro.props;
                 </a>
             </p>
         </div>
+        <p class="text-center text-sm pb-5 text-gray-500">© {new Date().getFullYear()} Yannick-Vk's Portfolio. All
+            rights reserved.</p>
     </div>
 </footer>
 </body>
