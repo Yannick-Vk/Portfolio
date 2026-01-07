@@ -8,11 +8,19 @@ import MainLayout from "@/layouts/MainLayout.astro";
 // Content loading
 import {type CollectionEntry, getCollection} from 'astro:content';
 import {Contact} from "@/lib/Contact.ts";
+import {Button} from '@/components/ui/button';
+import GitHubIcon from "@/components/icons/GitHubIcon.tsx";
+import LinkedInIcon from "@/components/icons/LinkedInIcon.tsx";
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
     (a, b) => b.data.created_at.localeCompare(a.data.created_at)
 );
+
+const iconMap = {
+    github: GitHubIcon,
+    linkedin: LinkedInIcon,
+};
 
 const skills = [
     "TypeScript",
@@ -52,14 +60,21 @@ const skills = [
 
         <ProfileSection title="Contact" id="contact">
             <p>If you want to get in touch, feel free to reach out via LinkedIn or GitHub!</p>
-            <ul class="flex flex-row mt-5 gap-5 justify-center">
-                {Contact.map(contact => (
-                        <li>
-                            <a href={contact.url} target="_blank"
-                               class="text-blue-600 hover:underline">{contact.name}</a>
-                        </li>
-                ))}
-            </ul>
+            <div class="flex flex-row mt-5 gap-5 justify-center">
+                {Contact.map(contact => {
+                    const IconComponent = iconMap[contact.icon as keyof typeof iconMap];
+                    return (
+                            <Button>
+                                <a href={contact.url} target="_blank"
+                                   class="flex items-center gap-2">
+                                    {contact.name}
+                                    {IconComponent &&
+                                            <IconComponent className="w-5 h-5"/>}
+                                </a>
+                            </Button>
+                    )
+                })}
+            </div>
 
         </ProfileSection>
     </div>
