@@ -1,5 +1,6 @@
 ---
 import {type CollectionEntry, getCollection, render} from 'astro:content';
+import MainLayout from "@/layouts/MainLayout.astro";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
     const project: CollectionEntry<'projects'>[] = await getCollection('projects');
@@ -12,5 +13,13 @@ export async function getStaticPaths() {
 const {post: project} = Astro.props;
 const {Content} = await render(project);
 ---
-<h1>{project.data.title}</h1>
-<Content/>
+
+<MainLayout title={project.data.title}>
+    <div class="flex flex-col items-center pt-5 min-h-screen gap-3">
+        <h1 class="text-3xl font-bold text-primary">{project.data.title}</h1>
+        <p class="text-sm text-gray-500">Created at: {new Date(project.data.created_at).toLocaleDateString()}</p>
+        <div class="prose max-w-none mt-5">
+            <Content/>
+        </div>
+    </div>
+</MainLayout>
