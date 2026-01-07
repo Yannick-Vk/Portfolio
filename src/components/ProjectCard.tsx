@@ -18,7 +18,7 @@ export default function ProjectCard(props: Props) {
                 <div className={"flex flex-row gap-3"}>
                     {props.project.tags.map((tag) => (
                         <span key={tag}
-                              className="inline-block bg-gray-200 dark:bg-slate-700 text-gray-800 dark:text-slate-300 text-xs px-2 py-1 rounded-full mt-2">
+                              className="inline-block bg-fuchsia-200 dark:bg-fuchsia-800 text-gray-800 dark:text-slate-300 text-xs px-2 py-1 rounded-full mt-2">
                             {tag}
                         </span>
                     ))}
