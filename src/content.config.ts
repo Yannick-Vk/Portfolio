@@ -18,6 +18,7 @@ const projects = defineCollection({
             message: "Invalid date format",
         }),
         link: z.string().url(),
+        tags: z.array(z.string()),
     }),
 });
 
