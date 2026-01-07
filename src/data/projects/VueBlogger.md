@@ -4,10 +4,10 @@ description: "A blogging platform built with Vue.js"
 created_at: "2025-09-24"
 link: https://github.com/Yannick-Vk/vue-blogs
 slug: "vue-blogger"
-tags: [ "Vue", "JavaScript", "TypeScript", "Frontend" ]
+tags: [ "Vue", "TypeScript", "Frontend", "Docker", "JWT" ]
 ---
 
-Create a blogging platform using **Vue.js** and **Tailwind CSS** for styling.
+A frontend for my blogging platform project created with **Vue.js** and **Tailwind CSS** for styling.
 Where users can view blogs without having to log in. Blogs can be filtered by title on the home page.
 
 The user can create an account using their email and a password, after which they have to confirm their email address
@@ -18,8 +18,8 @@ After logging in the user can create, edit, and delete their own blog posts. Whe
 in **Markdown** format and add a cover image.
 You can add another user as a collaborator to your blog post, allowing them to edit the post as well.
 
-The project sends requests to the **REST** backend API I created using **C# / .NET** with **Entity Framework** and a *
-*postgres database**.
+The project sends requests to the **REST** backend API I created using **C# / .NET** with **Entity Framework** and a
+**postgres database**.
 The app can run both locally and using **Docker**.
 
 An admin user can manage roles (Create, edit, delete).
