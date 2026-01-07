@@ -10,31 +10,31 @@ type ThemeType = "light" | "dark";
 
 export default function ThemeSwitcher(props: Props) {
 
-    const loadTheme = () => {
-        if (typeof window !== 'undefined') {
-            const savedTheme = localStorage?.getItem("theme") as ThemeType;
-            return savedTheme || "light";
-        }
-        return "light";
-    }
+    const [theme, setTheme] = React.useState<ThemeType>("light");
 
-    const [theme, setTheme] = React.useState<ThemeType>(loadTheme);
+    React.useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") as ThemeType | null;
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (prefersDark) {
+            setTheme("dark");
+        }
+    }, []);
+
+    React.useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
+    }, [theme]);
 
     const toggleTheme = () => {
-        // Logic to toggle theme goes here
-        console.log("Changing theme from", theme);
-        switchMode();
-    }
-
-    const switchMode = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        localStorage?.setItem("theme", newTheme);
-        if (theme === 'light') {
-            document?.documentElement.classList.remove('dark');
-        } else {
-            document?.documentElement.classList.add('dark');
-        }
+        setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
     }
 
     return (
