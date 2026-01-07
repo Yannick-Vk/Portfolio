@@ -24,6 +24,8 @@ The app can run both locally and using **Docker**.
 
 An admin user can manage roles (Create, edit, delete).
 
+---
+
 ## Features
 
 - View blogs without logging in
@@ -33,14 +35,23 @@ An admin user can manage roles (Create, edit, delete).
 - Create, edit, delete blog posts via REST API
 - Upload blog posts in Markdown format with cover images
 
+---
+
 ## Technologies Used
 
-- Vue.js
-- Pinia (for state management)
-- TypeScript
-- Tailwind CSS
-- REST API
-- Showdown.js (for Markdown rendering)
+- **Vue.js**: A progressive JavaScript framework for building user interfaces.
+- **Vue Router**: The official router for Vue.js.
+- **Pinia**: The official state management library for Vue.js.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Nuxt/ui**: A UI library for building beautiful and responsive user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
+- **Axios**: A promise-based HTTP client for the browser and Node.js.
+- **Highlight.js**: A syntax highlighter for the web.
+- **Luxon**: A powerful, modern, and friendly library for parsing, validating, manipulating, and formatting dates and
+  times.
+- **Showdown**: A JavaScript Markdown to HTML converter.
 
 ---
 The backend project can be found here: [Blogger Backend project](http://localhost:4321/projects/blogger-backend)
+
+---

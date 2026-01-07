@@ -146,12 +146,16 @@
     color: var(--color-fuchsia-200);
 }
 
+.prose ul strong {
+    color: var(--color-foreground);
+}
+
 .prose p {
     @apply mt-3;
 }
 
 .prose hr {
-    @apply my-3;
+    @apply my-5;
 }
 
 .prose a {
