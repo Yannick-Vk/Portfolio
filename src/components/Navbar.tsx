@@ -23,7 +23,7 @@ export default function Navbar(props: Props) {
                 <div className="absolute left-1/2 -translate-x-1/2">
                     <NavigationMenu>
                         <NavigationMenuList>
-                            <NavigationMenuItem className="flex flex-row gap-3 justify-center">
+                            <NavigationMenuItem className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
                                 {links.map(({link, label}) => (
                                     <NavigationMenuLink
                                         key={link}
