@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import {MoonIcon, SunIcon} from "lucide-react";
 import {Button} from "@/components/ui/button.tsx";
+import {cn} from "@/lib/utils.ts";
 
 export interface Props {
     className?: string;
@@ -44,8 +45,8 @@ export default function ThemeSwitcher(props: Props) {
     return (
         <>
             <Button id="themeToggle" onClick={toggleTheme}
-                    className={"bg-slate-200 text-indigo-900 hover:bg-slate-800 hover:text-fuchsia-200 dark:bg-zinc-800 dark:text-amber-300 dark:hover:text-orange-300 dark:hover:bg-zinc-200 transition-colors duration-300 "
-                        + (props.className ?? " ")}>
+                    className={cn("bg-slate-200 text-indigo-900 hover:bg-slate-800 hover:text-fuchsia-200 dark:bg-zinc-800 dark:text-amber-300 dark:hover:text-orange-300 dark:hover:bg-zinc-200 transition-colors duration-300 "
+                        , props.className)}>
                 {theme === "light" ? <MoonIcon/> : <SunIcon/>}
             </Button>
         </>
