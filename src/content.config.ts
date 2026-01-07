@@ -16,6 +16,7 @@ const projects = defineCollection({
         created_at: z.string().refine((date) => !isNaN(Date.parse(date)), {
             message: "Invalid date format",
         }),
+        link: z.string().url(),
     }),
 });
 

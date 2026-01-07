@@ -16,10 +16,12 @@ const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')
 
 <MainLayout title="Portfolio Home">
     <div class="flex flex-col items-center pt-5 min-h-screen gap-3">
-        <h1 class="text-xl font-bold text-primary">Projects</h1>
-        <p>A project's showcase</p>
+        <h1 class="text-3xl font-bold text-primary">Projects</h1>
+        <p>
+            A collection of my personal and professional projects showcasing my skills and experience.
+        </p>
 
-        <div class="grid grid-cols-2 gap-5 mt-10">
+        <div class="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
             {projects.map(project => (
                     <ProjectCard project={project.data}/>
             ))}
