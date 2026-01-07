@@ -1,0 +1,45 @@
+---
+import {type CollectionEntry, getCollection, render} from 'astro:content';
+import MainLayout from "@/layouts/MainLayout.astro";
+import {Button} from "@/components/ui/button.tsx";
+import {ArrowLeftIcon} from "lucide-react"
+import GitHubIcon from "@/components/GitHubIcon.tsx";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+    const project: CollectionEntry<'projects'>[] = await getCollection('projects');
+    return project.map(post => ({
+        params: {id: post.id},
+        props: {post},
+    }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const {post: project} = Astro.props;
+const {Content} = await render(project);
+---
+
+<MainLayout title={project.data.title}>
+    <div class="m-4 flex flex-row justify-between">
+        <Button>
+            <a href="/projects">
+                <ArrowLeftIcon className="inline mr-1"/>
+                Go back to projects overview
+            </a>
+        </Button>
+        <Button>
+            <a href={project.data.link} target="_blank">
+                View project on GitHub
+                <GitHubIcon className="inline mx-1"/>
+            </a>
+        </Button>
+    </div>
+    <div class="max-w-10/12 mx-auto">
+        <h1 class="text-3xl font-bold text-pink-700 dark:text-pink-400">{project.data.title}</h1>
+        <p class="text-sm text-gray-400 dark:text-gray-400 italic">Created
+            at: {new Date(project.data.created_at).toLocaleDateString()}</p>
+
+        <div class="prose mt-4">
+            <Content/>
+        </div>
+    </div>
+</MainLayout>
