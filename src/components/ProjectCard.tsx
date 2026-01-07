@@ -24,12 +24,14 @@ export default function ProjectCard(props: Props) {
                     ))}
                 </div>
 
-                <p className="text-sm text-gray-500 mt-3">
-                    Created on: {props.project.created_at}
-                </p>
-                <span className="absolute bottom-4 right-4 text-primary group-hover:underline flex items-center">
+                <div className={"flex flex-row flex-wrap justify-between gap-3 mt-3"}>
+                    <p className="text-sm text-gray-500">
+                        Created on: {props.project.created_at}
+                    </p>
+                    <span className="text-primary group-hover:underline flex items-center">
                     Go to details <ArrowRightFromLineIcon className="inline ml-1"/>
                 </span>
+                </div>
             </a>
         </>
     );

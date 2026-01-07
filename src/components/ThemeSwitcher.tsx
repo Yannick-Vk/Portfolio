@@ -1,47 +1,54 @@
-﻿import {Label} from "@/components/ui/label"
-import {Switch} from "@/components/ui/switch"
-import React from "react";
+﻿import React from "react";
+import {MoonIcon, SunIcon} from "lucide-react";
+import {Button} from "@/components/ui/button.tsx";
+import {cn} from "@/lib/utils.ts";
 
 export interface Props {
+    className?: string;
 }
 
 type ThemeType = "light" | "dark";
 
 export default function ThemeSwitcher(props: Props) {
+    // State to hold the current theme, default is light.
+    const [theme, setTheme] = React.useState<ThemeType>("light");
 
-    const loadTheme = () => {
-        if (typeof window !== 'undefined') {
-            const savedTheme = localStorage?.getItem("theme") as ThemeType;
-            return savedTheme || "light";
+    // Effect to load the saved theme from localStorage or use system preference on mount.
+    React.useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") as ThemeType | null;
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        // If a theme is saved in localStorage, use it. Otherwise, use the system preference.
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (prefersDark) {
+            setTheme("dark");
         }
-        return "light";
-    }
+    }, []);
 
-    const [theme, setTheme] = React.useState<ThemeType>(loadTheme);
-
-    const toggleTheme = () => {
-        // Logic to toggle theme goes here
-        console.log("Changing theme from", theme);
-        switchMode();
-    }
-
-    const switchMode = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        localStorage?.setItem("theme", newTheme);
-        if (theme === 'light') {
-            document?.documentElement.classList.remove('dark');
+    // Effect to apply the theme to the document and save it in localStorage.
+    React.useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
         } else {
-            document?.documentElement.classList.add('dark');
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
         }
+    }, [theme]);
+
+    // Function to toggle between light and dark themes.
+    const toggleTheme = () => {
+        setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
     }
 
     return (
         <>
-            <div className="flex items-center space-x-2 pr-4">
-                <Label htmlFor="airplane-mode">Switch to {theme} mode</Label>
-                <Switch id="themeToggle" onClick={toggleTheme}/>
-            </div>
+            <Button id="themeToggle" onClick={toggleTheme}
+                    className={cn("bg-slate-200 text-indigo-900 hover:bg-slate-800 hover:text-fuchsia-200 dark:bg-zinc-800 dark:text-amber-300 dark:hover:text-orange-300 dark:hover:bg-zinc-200 transition-colors duration-300 "
+                        , props.className)}>
+                {theme === "light" ? <MoonIcon/> : <SunIcon/>}
+            </Button>
         </>
     );
 }
