@@ -13,7 +13,7 @@ const projects = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
-        date: z.string().refine((date) => !isNaN(Date.parse(date)), {
+        created_at: z.string().refine((date) => !isNaN(Date.parse(date)), {
             message: "Invalid date format",
         }),
     }),

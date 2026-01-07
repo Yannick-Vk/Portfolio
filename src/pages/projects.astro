@@ -7,7 +7,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import {type CollectionEntry, getCollection} from 'astro:content';
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
-    (a, b) => a.data.date.localeCompare(b.data.date)
+    (a, b) => a.data.created_at.localeCompare(b.data.created_at)
 );
 ---
 
