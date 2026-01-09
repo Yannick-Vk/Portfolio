@@ -166,3 +166,7 @@
 .dark .prose a {
     color: var(--color-cyan-500);
 }
+
+button:hover {
+    cursor: pointer;
+}
