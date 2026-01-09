@@ -5,7 +5,7 @@ A personal portfolio built with Astro and React showcasing my projects and skill
 ## Live Demo
 
 Explore the live version of my portfolio
-here: [https://yannick-vk.github.io/Portfolio/#projects](https://yannick-vk.github.io/Portfolio/#projects)
+here: [https://yannick-vk.github.io/Portfolio/](https://yannick-vk.github.io/Portfolio)
 
 ## Features
 
