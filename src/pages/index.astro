@@ -28,6 +28,10 @@ const skills = [
     "Vue.js",
     "Angular",
     "Docker",
+    "Astro",
+    "Scrum",
+    "PostgreSQL",
+    "Python",
 ];
 ---
 
@@ -36,12 +40,14 @@ const skills = [
         <h1 class="text-5xl text-center font-bold text-primary">Welcome to My Portfolio</h1>
 
         <ProfileSection title="About me" id="about">
-            <p>Hi im Yannick, im a looking to become a Full-stack developer, im passionate about programming.</p>
-            <p>Currently I'm creating some projects to upgrade my portfolio.</p>
+            <p class="max-w-8/12 m-auto">Hi im Yannick, I'm based in Ghent. I'm a looking to become a Full-stack
+                developer,
+                I'm very passionate about programming and solving complex problems.
+                Currently I'm deepening my knowledge in React by creating some projects to upgrade my portfolio.
+            </p>
 
             <h3 class="font-bold text-2xl pt-5">Skills</h3>
-            <p>A list of some of my skills</p>
-            <ul class="flex flex-row gap-3 justify-center py-5">
+            <ul class="flex flex-row flex-wrap m-auto max-w-8/12 gap-3 justify-center py-5">
                 {skills.map(skills => (
                         <li class="rounded-3xl bg-accent px-5 py-3">{skills}</li>
                 ))}
