@@ -14,6 +14,18 @@ import {cn} from "@/lib/utils.ts";
 import SkillCategories, {type Category} from "@/components/SkillCategories.tsx";
 import TypeScriptIcon from "@/components/icons/TypeScriptIcon.tsx";
 import PythonIcon from "@/components/icons/PythonIcon.tsx";
+import DotNetIcon from "@/components/icons/DotNetIcon.tsx";
+import HtmlIcon from "@/components/icons/HtmlIcon.tsx";
+import CssIcon from "@/components/icons/CssIcon.tsx";
+import ReactIcon from "@/components/icons/ReactIcon.tsx";
+import VueIcon from "@/components/icons/VueIcon.tsx";
+import AngularIcon from "@/components/icons/AngularIcon.tsx";
+import PostgresIcon from "@/components/icons/PostgresIcon.tsx";
+import CsharpIcon from "@/components/icons/CsharpIcon.tsx";
+import GitIcon from "@/components/icons/GitIcon.tsx";
+import DockerIcon from "@/components/icons/DockerIcon.tsx";
+import MysqlIcon from "@/components/icons/MysqlIcon.tsx";
+import AstroIcon from "@/components/icons/AstroIcon.tsx";
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
@@ -28,25 +40,36 @@ const iconMap = {
 const skillIconMap = {
     typescript: TypeScriptIcon,
     python: PythonIcon,
-    // Add other icons here, e.g., vue: VueIcon
+    dotnet: DotNetIcon,
+    html: HtmlIcon,
+    css: CssIcon,
+    react: ReactIcon,
+    vue: VueIcon,
+    angular: AngularIcon,
+    astro: AstroIcon,
+    postgres: PostgresIcon,
+    mysql: MysqlIcon,
+    docker: DockerIcon,
+    git: GitIcon,
+    github: GitHubIcon,
+    csharp: CsharpIcon,
 };
 
 const skillCategories: Category[] = [
     {
         title: "Languages",
-        skills: [{name: "C#"}, {
-            name: "JavaScript/TypeScript",
-            iconId: "typescript"
-        }, {name: "Python", iconId: "python"}, {name: "HTML"}, {name: "CSS"}]
+        skills: [{name: "C#", iconId: "csharp"}, {name: "JavaScript/TypeScript", iconId: "typescript"},
+            {name: "Python", iconId: "python"}, {name: "HTML", iconId: "html"}, {name: "CSS", iconId: "css"}]
     }, {
         title: "Frameworks/Libraries",
-        skills: [{name: "React"}, {name: "Vue.js"}, {name: "Angular"}, {name: ".Net"}, {name: "Astro"}]
+        skills: [{name: "React", iconId: "react"}, {name: "Vue.js", iconId: "vue"},
+            {name: "Angular", iconId: "angular"}, {name: ".Net", iconId: "dotnet"}, {name: "Astro", iconId: "astro"}]
     }, {
         title: "Databases",
-        skills: [{name: "PostgreSQL"}, {name: "MySQL"}]
+        skills: [{name: "PostgreSQL", iconId: "postgres"}, {name: "MySQL", iconId: "mysql"}]
     }, {
         title: "Tools/Platforms",
-        skills: [{name: "Docker"}, {name: "Git"}, {name: "GitHub"}]
+        skills: [{name: "Docker", iconId: "docker"}, {name: "Git", iconId: "git"}, {name: "GitHub", iconId: "github"}]
     }, {
         title: "Methodologies",
         skills: [{name: "Scrum"}, {name: "Agile"}]
