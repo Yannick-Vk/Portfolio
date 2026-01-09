@@ -3,7 +3,7 @@ import React from "react";
 export interface Props {
     className?: string;
     categories: Category[];
-    iconMap: { [key: string]: React.ComponentType<{ className?: string; size?: number }> };
+    iconMap: { [key: string]: React.ComponentType<{ className?: string; size: number }> };
 }
 
 export interface Category {
