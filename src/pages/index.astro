@@ -8,7 +8,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 // Content loading
 import {type CollectionEntry, getCollection} from 'astro:content';
 import {Contact} from "@/lib/Contact.ts";
-import {Button} from '@/components/ui/button';
+import {buttonVariants} from '@/components/ui/button';
 import GitHubIcon from "@/components/icons/GitHubIcon.tsx";
 import LinkedInIcon from "@/components/icons/LinkedInIcon.tsx";
 
@@ -56,9 +56,7 @@ const skills = [
         </ProfileSection>
 
         <div class="text-center py-5">
-            <Button asChild>
-                <a href="/Yannick-Resume.pdf" download>Download Resume</a>
-            </Button>
+            <a href="/Yannick-Resume.pdf" download class={buttonVariants()}>Download Resume</a>
         </div>
 
         <ProfileSection title="Projects" id="projects">
@@ -76,14 +74,12 @@ const skills = [
                 {Contact.map(contact => {
                     const IconComponent = iconMap[contact.icon as keyof typeof iconMap];
                     return (
-                            <Button>
-                                <a href={contact.url} target="_blank"
-                                   class="flex items-center gap-2">
-                                    {contact.name}
-                                    {IconComponent &&
-                                            <IconComponent className="w-5 h-5"/>}
-                                </a>
-                            </Button>
+                            <a href={contact.url} target="_blank"
+                               class={buttonVariants()}>
+                                {contact.name}
+                                {IconComponent &&
+                                        <IconComponent className="size-5"/>}
+                            </a>
                     )
                 })}
             </div>
