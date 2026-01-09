@@ -1,12 +1,9 @@
-import type {SVGProps} from "react";
-
-export interface IconProps {
+export interface Props {
     className?: string;
-    svgProps?: SVGProps<SVGSVGElement>;
     size: number;
 }
 
-export default function TypeScriptIcon(props: IconProps) {
+export default function TypeScriptIcon(props: Props) {
     return (
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width={props.size} height={props.size}>
             <path

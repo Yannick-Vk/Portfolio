@@ -33,11 +33,6 @@ const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')
 );
 
 const iconMap = {
-    github: GitHubIcon,
-    linkedin: LinkedInIcon,
-};
-
-const skillIconMap = {
     typescript: TypeScriptIcon,
     python: PythonIcon,
     dotnet: DotNetIcon,
@@ -53,6 +48,7 @@ const skillIconMap = {
     git: GitIcon,
     github: GitHubIcon,
     csharp: CsharpIcon,
+    linkedin: LinkedInIcon,
 };
 
 const skillCategories: Category[] = [
@@ -96,7 +92,7 @@ const skillCategories: Category[] = [
 
             <h3 class="font-bold text-2xl pt-5">Skills</h3>
             <ul class="m-auto max-w-8/12">
-                <SkillCategories categories={skillCategories} iconMap={skillIconMap}/>
+                <SkillCategories categories={skillCategories} iconMap={iconMap}/>
             </ul>
         </ProfileSection>
 
@@ -116,10 +112,10 @@ const skillCategories: Category[] = [
                     const IconComponent = iconMap[contact.icon as keyof typeof iconMap];
                     return (
                             <a href={contact.url} target="_blank"
-                               class={buttonVariants()}>
+                               class={cn(buttonVariants())}>
                                 {contact.name}
                                 {IconComponent &&
-                                        <IconComponent className="size-5"/>}
+                                        <IconComponent size={32} className="size-5"/>}
                             </a>
                     )
                 })}
