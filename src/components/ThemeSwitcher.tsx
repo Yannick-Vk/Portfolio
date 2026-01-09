@@ -11,19 +11,12 @@ type ThemeType = "light" | "dark";
 
 export default function ThemeSwitcher(props: Props) {
     // State to hold the current theme, default is light.
-    const [theme, setTheme] = React.useState<ThemeType>("light");
+    const [theme, setTheme] = React.useState<ThemeType | null>(null);
 
     // Effect to load the saved theme from localStorage or use system preference on mount.
     React.useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") as ThemeType | null;
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        // If a theme is saved in localStorage, use it. Otherwise, use the system preference.
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else if (prefersDark) {
-            setTheme("dark");
-        }
+        const isDarkMode = document.documentElement.classList.contains("dark");
+        setTheme(isDarkMode ? "dark" : "light");
     }, []);
 
     // Effect to apply the theme to the document and save it in localStorage.
@@ -31,7 +24,7 @@ export default function ThemeSwitcher(props: Props) {
         if (theme === "dark") {
             document.documentElement.classList.add("dark");
             localStorage.setItem("theme", "dark");
-        } else {
+        } else if (theme === "light") {
             document.documentElement.classList.remove("dark");
             localStorage.setItem("theme", "light");
         }

@@ -119,7 +119,7 @@
     }
 
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground flex flex-col min-h-screen;
     }
 }
 
@@ -159,6 +159,14 @@
 }
 
 .prose a {
-    color: var(--color-cyan-500);
+    color: var(--color-sky-500);
     text-decoration: underline;
+}
+
+.dark .prose a {
+    color: var(--color-cyan-500);
+}
+
+button:hover {
+    cursor: pointer;
 }

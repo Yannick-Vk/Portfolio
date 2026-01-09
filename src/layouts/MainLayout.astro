@@ -1,22 +1,67 @@
 ---
 import '../styles/global.css';
 import Navbar from "@/components/Navbar.tsx";
-const { title } = Astro.props;
+import {Contact} from "@/lib/Contact.ts";
+import {GitHubIcon, LinkedInIcon} from "@/components/icons/Icons.tsx";
+
+const iconMap = {
+    github: GitHubIcon,
+    linkedin: LinkedInIcon,
+};
+
+const {title} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body>
-	<header>
-		<Navbar client:load />
-	</header>
-	<main>
-		<slot />
-	</main>
-	</body>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <title>{title}</title>
+    <script is:inline>
+        const theme = (() => {
+            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                return localStorage.getItem('theme');
+            }
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
+        })();
+
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body>
+<header>
+    <Navbar client:load/>
+</header>
+<main class="grow">
+    <slot/>
+</main>
+<footer>
+    <div class="bg-slate-800 mt-5">
+        <p class="text-center text-gray-500 pt-5">Contact information</p>
+        <div class="flex flex-row justify-center gap-5 p-3 text-gray-500">
+            {Contact.map(contact => {
+                const IconComponent = iconMap[contact.icon as keyof typeof iconMap];
+                if (!IconComponent) return null;
+                return (
+                        <p>
+                            <a href={contact.url} target="_blank">
+                                <IconComponent size={32}/>
+                            </a>
+                        </p>
+                )
+            })}
+        </div>
+        <p class="text-center text-sm pb-5 text-gray-500">© {new Date().getFullYear()} Yannick-Vk's Portfolio. All
+            rights reserved.</p>
+    </div>
+</footer>
+</body>
 </html>

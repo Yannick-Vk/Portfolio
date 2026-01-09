@@ -1,14 +1,128 @@
 ---
 import '../styles/global.css';
 // Component Imports
-import {Button} from '../components/ui/button.tsx';
+import ProjectCard from "@/components/ProjectCard";
+import ProfileSection from "@/components/ProfileSection";
 import MainLayout from "@/layouts/MainLayout.astro";
+import {type CollectionEntry, getCollection} from 'astro:content';
+import {Contact} from "@/lib/Contact.ts";
+import {buttonVariants} from '@/components/ui/button';
+import {DownloadIcon} from "lucide-react";
+import {cn} from "@/lib/utils.ts";
+import SkillCategories, {type Category} from "@/components/SkillCategories.tsx";
+import {
+    TypeScriptIcon,
+    PythonIcon,
+    DotNetIcon,
+    HtmlIcon,
+    CssIcon,
+    ReactIcon,
+    VueIcon,
+    AngularIcon,
+    AstroIcon,
+    PostgresIcon,
+    MysqlIcon,
+    DockerIcon,
+    GitIcon,
+    GitHubIcon,
+    CsharpIcon,
+    LinkedInIcon
+} from "@/components/icons/Icons.tsx"
+
+const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
+    // Sort by most recent creation date
+    (a, b) => b.data.created_at.localeCompare(a.data.created_at)
+);
+
+const iconMap = {
+    typescript: TypeScriptIcon,
+    python: PythonIcon,
+    dotnet: DotNetIcon,
+    html: HtmlIcon,
+    css: CssIcon,
+    react: ReactIcon,
+    vue: VueIcon,
+    angular: AngularIcon,
+    astro: AstroIcon,
+    postgres: PostgresIcon,
+    mysql: MysqlIcon,
+    docker: DockerIcon,
+    git: GitIcon,
+    github: GitHubIcon,
+    csharp: CsharpIcon,
+    linkedin: LinkedInIcon,
+};
+
+const skillCategories: Category[] = [
+    {
+        title: "Languages",
+        skills: [{name: "C#", iconId: "csharp"}, {name: "JavaScript/TypeScript", iconId: "typescript"},
+            {name: "Python", iconId: "python"}, {name: "HTML", iconId: "html"}, {name: "CSS", iconId: "css"}]
+    }, {
+        title: "Frameworks/Libraries",
+        skills: [{name: "React", iconId: "react"}, {name: "Vue.js", iconId: "vue"},
+            {name: "Angular", iconId: "angular"}, {name: ".Net", iconId: "dotnet"}, {name: "Astro", iconId: "astro"}]
+    }, {
+        title: "Databases",
+        skills: [{name: "PostgreSQL", iconId: "postgres"}, {name: "MySQL", iconId: "mysql"}]
+    }, {
+        title: "Tools/Platforms",
+        skills: [{name: "Docker", iconId: "docker"}, {name: "Git", iconId: "git"}, {name: "GitHub", iconId: "github"}]
+    }, {
+        title: "Methodologies",
+        skills: [{name: "Scrum"}, {name: "Agile"}]
+    },
+];
 ---
 
 <MainLayout title="Portfolio Home">
-    <div class="flex flex-col items-center pt-5 min-h-screen gap-3">
-        <h1 class="text-xl font-bold text-primary">Welcome to My Portfolio</h1>
-        <p>This is the homepage of my portfolio website built with Astro.</p>
-        <Button><a href="/projects">View my projects</a></Button>
+    <div class="pt-5 min-h-screen max-w-11/12 md:max-w-8/12 m-auto gap-3">
+        <h1 class="text-5xl text-center font-bold text-primary">Welcome to My Portfolio</h1>
+
+        <ProfileSection title="About me" id="about">
+            <p class="max-w-8/12 m-auto">
+                Hi I'm Yannick, I'm based in Ghent. I'm looking to become a Full-stack developer,
+                I'm very passionate about programming and solving complex problems.
+                Currently I'm deepening my knowledge in React by creating some projects to upgrade my portfolio.
+            </p>
+
+            <a href="/Yannick-Resume.pdf" download
+               class={cn(buttonVariants(), "mt-5 bg-sky-600 dark:bg-sky-300 hover:bg-sky-700 dark:hover:bg-sky-400")}>
+                Download Resume/CV
+                <DownloadIcon className="size-6"/>
+            </a>
+
+            <h3 class="font-bold text-2xl pt-5">Skills</h3>
+            <ul class="m-auto max-w-8/12">
+                <SkillCategories categories={skillCategories} iconMap={iconMap}/>
+            </ul>
+        </ProfileSection>
+
+        <ProfileSection title="Projects" id="projects">
+            <p>An overview of my projects filtered on creation date.</p>
+            <div class="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
+                {projects.map(project => (
+                        <ProjectCard project={project.data} className="text-left"/>
+                ))}
+            </div>
+        </ProfileSection>
+
+        <ProfileSection title="Contact" id="contact">
+            <p>If you want to get in touch, feel free to reach out via LinkedIn or GitHub!</p>
+            <div class="flex flex-row mt-5 gap-5 justify-center">
+                {Contact.map(contact => {
+                    const IconComponent = iconMap[contact.icon as keyof typeof iconMap];
+                    return (
+                            <a href={contact.url} target="_blank"
+                               class={cn(buttonVariants())}>
+                                {contact.name}
+                                {IconComponent &&
+                                        <IconComponent size={32} className="size-5"/>}
+                            </a>
+                    )
+                })}
+            </div>
+
+        </ProfileSection>
     </div>
 </MainLayout>

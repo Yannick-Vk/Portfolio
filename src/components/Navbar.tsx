@@ -6,17 +6,20 @@
 } from "@/components/ui/navigation-menu"
 import ThemeSwitcher from "./ThemeSwitcher"
 import MobileNav from "@/components/MobileNav";
+import {Github} from "@/lib/Contact.ts";
 
 export interface NavbarLink {
     link: string;
     label: string;
+    target?: string;
 }
 
 export default function Navbar() {
     const links: NavbarLink[] = [
         {link: "/", label: "Home"},
-        {link: "/about", label: "About"},
-        {link: "/projects", label: "Projects"},
+        {link: "/#about", label: "About"},
+        {link: "/#projects", label: "Projects"},
+        {link: Github, label: "GitHub", target: "_blank"},
     ];
 
     return (
@@ -29,13 +32,14 @@ export default function Navbar() {
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
-                                {links.map(({link, label}) => (
+                                {links.map((link) => (
                                     <NavigationMenuLink
-                                        key={link}
-                                        href={link}
+                                        key={link.link}
+                                        href={link.link}
+                                        target={link.target ?? "_self"}
                                         className="px-3 py-2 rounded-md text-sm font-medium"
                                     >
-                                        {label}
+                                        {link.label}
                                     </NavigationMenuLink>
                                 ))}
                             </NavigationMenuItem>
