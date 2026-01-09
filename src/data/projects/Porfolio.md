@@ -8,7 +8,7 @@ tags: [ "Astro", "React", "TypeScript", "Frontend" ]
 ---
 
 A portfolio website created using **Astro** and **TypeScript** to showcase my projects and skills.
-The website features a clean and modern design, with sections for my bio, skills, projects, and contact information.
+The website features a clean and modern design, with sections skills, projects, and contact information.
 The project is structured to be easily maintainable and scalable, allowing for the addition of new projects and updates
 to my skills as needed.
 
@@ -18,12 +18,6 @@ making it easy to add or update projects without modifying the core codebase.
 
 The UI is buildt with **React** components integrated into the Astro framework and **Shadcn** UI components,
 providing a dynamic and interactive user experience.
-
-## Current Features
-
-- A home page
-- A projects section displaying my portfolio projects
-- An about me section
 
 ## Technologies Used
 
