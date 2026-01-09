@@ -16,12 +16,12 @@ export default function MobileNav(props: Props) {
             <SheetContent side="left">
                 <SheetHeader>
                     <SheetTitle>Navigation</SheetTitle>
-                    <SheetDescription className="flex flex-col">
+                    <SheetDescription className="flex flex-col gap-3">
                         {props.links.map(({link, label}) => (
                             <a
                                 key={link}
                                 href={link}
-                                className="px-3 py-2 rounded-md text-sm font-medium"
+                                className="px-3 py-2 rounded-md text-sm font-medium bg-slate-800 hover:bg-fuchsia-200 hover:text-primary-foreground"
                                 onClick={() => setOpen(false)}
                             >
                                 {label}
