@@ -7,25 +7,27 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import {type CollectionEntry, getCollection} from 'astro:content';
 import {Contact} from "@/lib/Contact.ts";
 import {buttonVariants} from '@/components/ui/button';
-import GitHubIcon from "@/components/icons/GitHubIcon.tsx";
-import LinkedInIcon from "@/components/icons/LinkedInIcon.tsx";
 import {DownloadIcon} from "lucide-react";
 import {cn} from "@/lib/utils.ts";
 import SkillCategories, {type Category} from "@/components/SkillCategories.tsx";
-import TypeScriptIcon from "@/components/icons/TypeScriptIcon.tsx";
-import PythonIcon from "@/components/icons/PythonIcon.tsx";
-import DotNetIcon from "@/components/icons/DotNetIcon.tsx";
-import HtmlIcon from "@/components/icons/HtmlIcon.tsx";
-import CssIcon from "@/components/icons/CssIcon.tsx";
-import ReactIcon from "@/components/icons/ReactIcon.tsx";
-import VueIcon from "@/components/icons/VueIcon.tsx";
-import AngularIcon from "@/components/icons/AngularIcon.tsx";
-import PostgresIcon from "@/components/icons/PostgresIcon.tsx";
-import CsharpIcon from "@/components/icons/CsharpIcon.tsx";
-import GitIcon from "@/components/icons/GitIcon.tsx";
-import DockerIcon from "@/components/icons/DockerIcon.tsx";
-import MysqlIcon from "@/components/icons/MysqlIcon.tsx";
-import AstroIcon from "@/components/icons/AstroIcon.tsx";
+import {
+    TypeScriptIcon,
+    PythonIcon,
+    DotNetIcon,
+    HtmlIcon,
+    CssIcon,
+    ReactIcon,
+    VueIcon,
+    AngularIcon,
+    AstroIcon,
+    PostgresIcon,
+    MysqlIcon,
+    DockerIcon,
+    GitIcon,
+    GitHubIcon,
+    CsharpIcon,
+    LinkedInIcon
+} from "@/components/icons/Icons.tsx"
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
