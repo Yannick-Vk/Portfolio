@@ -19,7 +19,7 @@ export default function Navbar() {
         {link: "/", label: "Home"},
         {link: "/#about", label: "About"},
         {link: "/#projects", label: "Projects"},
-        {link: Github, label: "github", target: "_blank"},
+        {link: Github, label: "GitHub", target: "_blank"},
     ];
 
     return (
