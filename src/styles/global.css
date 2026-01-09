@@ -159,6 +159,10 @@
 }
 
 .prose a {
-    color: var(--color-cyan-500);
+    color: var(--color-sky-500);
     text-decoration: underline;
+}
+
+.dark .prose a {
+    color: var(--color-cyan-500);
 }
