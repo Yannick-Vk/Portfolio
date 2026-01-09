@@ -35,7 +35,7 @@ export default function Navbar() {
                                 {links.map((link) => (
                                     <NavigationMenuLink
                                         key={link.link}
-                                        href={link.link}
+                                        href={link.link.startsWith("/") ? import.meta.env.BASE_URL + link.link : link.link}
                                         target={link.target ?? "_self"}
                                         className="px-3 py-2 rounded-md text-sm font-medium"
                                     >

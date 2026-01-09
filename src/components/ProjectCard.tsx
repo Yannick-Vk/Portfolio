@@ -11,7 +11,7 @@ export default function ProjectCard(props: Props) {
     return (
         <>
             <a
-                href={`/projects/${props.project.slug}`}
+                href={`${import.meta.env.BASE_URL}/projects/${props.project.slug}`}
                 className={cn("block border border-gray-300 dark:border-slate-700 rounded-lg bg-accent hover:bg-gray-200 dark:hover:bg-slate-700 p-4 shadow-sm hover:shadow-md transition-shadow duration-300 relative group", props.className)}
             >
                 <h2 className="text-2xl font-bold mb-2">{props.project.title}</h2>

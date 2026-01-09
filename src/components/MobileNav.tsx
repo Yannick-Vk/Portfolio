@@ -20,7 +20,7 @@ export default function MobileNav(props: Props) {
                         {props.links.map(({link, label}) => (
                             <a
                                 key={link}
-                                href={link}
+                                href={link.startsWith("/") ? import.meta.env.BASE_URL + link : link}
                                 className="px-3 py-2 rounded-md text-sm font-medium bg-slate-800 hover:bg-fuchsia-200 hover:text-primary-foreground"
                                 onClick={() => setOpen(false)}
                             >

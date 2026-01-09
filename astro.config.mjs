@@ -14,6 +14,7 @@ export default defineConfig({
           }
       })],
 	},
-
+    site: 'https://Yannick-Vk.github.io',
+    base: '/Portfolio',
   integrations: [react()],
 });
