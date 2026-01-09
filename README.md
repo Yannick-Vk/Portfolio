@@ -1,13 +1,87 @@
-# Astro with Tailwind
+# Yannick's Portfolio
 
-```sh
-bun create astro@latest -- --template with-tailwindcss
+A personal portfolio built with Astro and React showcasing my projects and skills.
+
+## Live Demo
+
+Explore the live version of my portfolio
+here: [https://yannick-vk.github.io/Portfolio/#projects](https://yannick-vk.github.io/Portfolio/#projects)
+
+## Features
+
+- **Dynamic Project Showcase:** Browse through a collection of my projects with detailed descriptions.
+- **Categorized Skills:** Skills are organized into categories with visual icons for quick overview.
+- **Theme-Aware Design:** Supports both light and dark modes for a comfortable viewing experience.
+- **Resume/CV Download:** Easily download my resume in PDF format.
+- **Responsive Layout:** Optimized for various devices, from mobile to desktop.
+
+## Tech Stack
+
+This project is built using a modern web development stack:
+
+- **Framework:** [Astro](https://astro.build/) - For fast content-focused websites.
+- **UI Components:** [React](https://react.dev/) - For interactive user interface elements.
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+- **Package Manager:** [Bun](https://bun.sh/) - A fast all-in-one JavaScript runtime.
+
+## Getting Started
+
+Follow these instructions to set up and run the project locally.
+
+### Prerequisites
+
+Ensure you have [Bun](https://bun.sh/docs/installation) installed on your system.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://https://github.com/Yannick-VK/portfolio-website.git
+   cd portfolio-website
+   ```
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
+
+### Development Server
+
+Start the development server with hot-reloading:
+
+```bash
+bun run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+This will typically run the site at `http://localhost:4321`.
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+### Build for Production
 
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+To build the project for deployment:
+
+```bash
+bun run build
+```
+
+This command generates a `dist/` directory with all the static assets for your production site.
+
+## Project Structure
+
+A high-level overview of the important directories and files:
+
+- `src/`: Contains all project source code.
+    - `pages/`: Defines the site's routes. Each `.astro` file becomes a page.
+    - `components/`: Holds reusable UI components, including React (`.tsx`) and Astro (`.astro`) components. Icon
+      components are centralized here.
+    - `layouts/`: Contains master templates for page layouts.
+    - `data/`: Stores content collections, such as the Markdown files for individual projects.
+    - `styles/`: Global stylesheets.
+- `public/`: For static assets like images, fonts, and PDFs (e.g., `Yannick-Resume.pdf`) that are served directly.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or find any issues, please open an issue or submit a
+pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
