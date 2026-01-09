@@ -11,6 +11,8 @@ import {Contact} from "@/lib/Contact.ts";
 import {buttonVariants} from '@/components/ui/button';
 import GitHubIcon from "@/components/icons/GitHubIcon.tsx";
 import LinkedInIcon from "@/components/icons/LinkedInIcon.tsx";
+import {DownloadIcon} from "lucide-react";
+import {cn} from "@/lib/utils.ts";
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
@@ -46,18 +48,19 @@ const skills = [
                 Currently I'm deepening my knowledge in React by creating some projects to upgrade my portfolio.
             </p>
 
+            <a href="/Yannick-Resume.pdf" download
+               class={cn(buttonVariants(), "mt-5 bg-sky-600 dark:bg-sky-300 hover:bg-sky-700 dark:hover:bg-sky-400")}>
+                Download Resume/CV
+                <DownloadIcon className="size-6"/>
+            </a>
+
             <h3 class="font-bold text-2xl pt-5">Skills</h3>
             <ul class="flex flex-row flex-wrap m-auto max-w-8/12 gap-3 justify-center py-5">
                 {skills.map(skill => (
                         <li class="rounded-3xl bg-accent px-5 py-3">{skill}</li>
                 ))}
             </ul>
-            <p></p>
         </ProfileSection>
-
-        <div class="text-center py-5">
-            <a href="/Yannick-Resume.pdf" download class={buttonVariants()}>Download Resume</a>
-        </div>
 
         <ProfileSection title="Projects" id="projects">
             <p>An overview of my projects filtered on creation date.</p>
