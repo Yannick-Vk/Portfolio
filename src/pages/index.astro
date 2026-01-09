@@ -12,6 +12,8 @@ import LinkedInIcon from "@/components/icons/LinkedInIcon.tsx";
 import {DownloadIcon} from "lucide-react";
 import {cn} from "@/lib/utils.ts";
 import SkillCategories, {type Category} from "@/components/SkillCategories.tsx";
+import TypeScriptIcon from "@/components/icons/TypeScriptIcon.tsx";
+import PythonIcon from "@/components/icons/PythonIcon.tsx";
 
 const projects: CollectionEntry<'projects'>[] = (await getCollection('projects')).sort(
     // Sort by most recent creation date
@@ -23,18 +25,32 @@ const iconMap = {
     linkedin: LinkedInIcon,
 };
 
+const skillIconMap = {
+    typescript: TypeScriptIcon,
+    python: PythonIcon,
+    // Add other icons here, e.g., vue: VueIcon
+};
+
 const skillCategories: Category[] = [
     {
         title: "Languages",
-        skills: [{name: "C#"}, {name: "JavaScript/TypeScript"}, {name: "Python"}, {name: "HTML"}, {name: "CSS"}]
-    },
-    {
+        skills: [{name: "C#"}, {
+            name: "JavaScript/TypeScript",
+            iconId: "typescript"
+        }, {name: "Python", iconId: "python"}, {name: "HTML"}, {name: "CSS"}]
+    }, {
         title: "Frameworks/Libraries",
         skills: [{name: "React"}, {name: "Vue.js"}, {name: "Angular"}, {name: ".Net"}, {name: "Astro"}]
+    }, {
+        title: "Databases",
+        skills: [{name: "PostgreSQL"}, {name: "MySQL"}]
+    }, {
+        title: "Tools/Platforms",
+        skills: [{name: "Docker"}, {name: "Git"}, {name: "GitHub"}]
+    }, {
+        title: "Methodologies",
+        skills: [{name: "Scrum"}, {name: "Agile"}]
     },
-    {title: "Databases", skills: [{name: "PostgreSQL"}, {name: "MySQL"}]},
-    {title: "Tools/Platforms", skills: [{name: "Docker"}, {name: "Git"}, {name: "GitHub"}]},
-    {title: "Methodologies", skills: [{name: "Scrum"}, {name: "Agile"}]},
 ];
 ---
 
@@ -57,7 +73,7 @@ const skillCategories: Category[] = [
 
             <h3 class="font-bold text-2xl pt-5">Skills</h3>
             <ul class="m-auto max-w-8/12">
-                <SkillCategories categories={skillCategories}/>
+                <SkillCategories categories={skillCategories} iconMap={skillIconMap}/>
             </ul>
         </ProfileSection>
 
