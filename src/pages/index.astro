@@ -81,20 +81,20 @@ const skillCategories: Category[] = [
 
         <ProfileSection title="About me" id="about">
             <p class="max-w-8/12 m-auto">
-                Hi I'm Yannick, I'm based in Ghent. I'm looking to become a Full-stack developer,
-                I'm very passionate about programming and solving complex problems.
-                Currently I'm deepening my knowledge in React by creating some projects to upgrade my portfolio.
+                Hello! I'm Yannick, a Ghent-based developer with a passion for building full-stack applications. I enjoy
+                turning complex problems into clean, simple, and intuitive user interfaces. I am always looking to learn
+                and am currently honing my skills in React and GraphQL by developing new projects for this portfolio.
             </p>
 
             <a href="/Yannick-Resume.pdf" download
                class={cn(buttonVariants(), "mt-5 bg-sky-600 dark:bg-sky-300 hover:bg-sky-700 dark:hover:bg-sky-400")}>
                 Download Resume/CV
-                <DownloadIcon className="size-6"/>
+                <DownloadIcon className="size-6" />
             </a>
 
             <h3 class="font-bold text-2xl pt-5">Skills</h3>
             <ul class="m-auto max-w-8/12">
-                <SkillCategories categories={skillCategories} iconMap={iconMap}/>
+                <SkillCategories categories={skillCategories} iconMap={iconMap} />
             </ul>
         </ProfileSection>
 
@@ -102,7 +102,7 @@ const skillCategories: Category[] = [
             <p>An overview of my projects filtered on creation date.</p>
             <div class="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
                 {projects.map(project => (
-                        <ProjectCard project={project.data} className="text-left"/>
+                        <ProjectCard project={project.data} className="text-left" />
                 ))}
             </div>
         </ProfileSection>
@@ -117,7 +117,7 @@ const skillCategories: Category[] = [
                                class={cn(buttonVariants())}>
                                 {contact.name}
                                 {IconComponent &&
-                                        <IconComponent size={32} className="size-5"/>}
+                                        <IconComponent size={32} className="size-5" />}
                             </a>
                     )
                 })}
