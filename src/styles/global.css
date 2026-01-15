@@ -137,6 +137,11 @@
     @apply ml-5;
 }
 
+.prose ul:has(li > input[type="checkbox"]) {
+    list-style: none;
+    @apply ml-1;
+}
+
 .prose strong {
     @apply font-bold;
     color: var(--color-fuchsia-500);
