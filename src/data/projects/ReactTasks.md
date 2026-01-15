@@ -7,30 +7,36 @@ slug: react-tasks
 tags: [ "React", "JavaScript", "TypeScript", "Frontend" ]
 ---
 
-Created a simple task board application using **React**. For styling, I used **Tailwind CSS**.
+Created a simple task board application using **React**. For styling, I used **Tailwind CSS**. 
+All UI and components are written without a UI library.
 
 The app allows users to add, remove, and edit tasks.
 
 This project is still a work in progress, but it demonstrates the basics of managing state and rendering components in
 React.
 
-Currently, the tasks are not saved to local storage or a database, but this is planned for future updates.
+The tasks are saved via a **.Net** web api and **GraphQL** in a **Postgres** database running on **docker**.
 
 ## Current Features
 
 - Add Task
 - Remove Task
 - Edit Task status (To Do, In Progress, Done)
+- Edit Task Name with a Modal
 
-## Future Improvements
+## Future Plans & Improvements
 
-- Save tasks to local storage
-- Save tasks to a database via a **GraphQL** API
-- Filter tasks by status
+- [x] Save tasks to a database via a **GraphQL** API
+- [ ] Filter tasks by status
+- [ ] Add priority (low, medium high)
+- [ ] Add createdOn date
+- [ ] Add an optional due-date
 
 ## Technologies Used
 
 - React
 - JavaScript/TypeScript
 - Tailwind CSS
-- GraphQL (planned)
+- GraphQL
+- Docker
+- PostgresSQL
