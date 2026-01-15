@@ -76,8 +76,8 @@ const skillCategories: Category[] = [
 ---
 
 <MainLayout title="Portfolio Home">
-    <div class="pt-5 min-h-screen max-w-11/12 md:max-w-8/12 m-auto gap-3">
-        <h1 class="text-5xl text-center font-bold text-primary">Welcome to My Portfolio</h1>
+    <div class="pt-10 min-h-screen max-w-11/12 md:max-w-8/12 m-auto gap-3">
+        <h1 class="text-5xl text-center font-bold text-primary pb-5">Yannick-Vk | Full-Stack Developer</h1>
 
         <ProfileSection title="About me" id="about">
             <p class="max-w-8/12 m-auto">
@@ -100,7 +100,7 @@ const skillCategories: Category[] = [
         </ProfileSection>
 
         <ProfileSection title="Projects" id="projects">
-            <p>An overview of my projects filtered on creation date.</p>
+            <p>Here are some of the projects I've been working on recently. Feel free to explore.</p>
             <div class="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
                 {projects.map(project => (
                         <ProjectCard project={project.data} className="text-left" />
